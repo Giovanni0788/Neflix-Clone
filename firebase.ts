@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp, getApp, getApps } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
-import { getAuth } from 'firebase/auth'
+import { initializeApp, getApp, getApps } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -10,6 +10,7 @@ import { getAuth } from 'firebase/auth'
 const firebaseConfig = {
   apiKey: "AIzaSyBDIE6unMWBBz8dmNKSLFS3eK0spJ1qohA",
   authDomain: "netflix-clone-2a414.firebaseapp.com",
+  databaseURL: 'https://netflix-clone-2a414-default-rtdb.firebaseio.com',
   projectId: "netflix-clone-2a414",
   storageBucket: "netflix-clone-2a414.firebasestorage.app",
   messagingSenderId: "92543935666",
@@ -18,9 +19,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
 
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
+const db = getFirestore()
 const auth = getAuth()
 
 export default app
-export { auth}
+export { auth, db }
